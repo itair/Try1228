@@ -88,6 +88,47 @@ unsigned long long Factorial(int n) {
   else return unsigned long long(n) * Factorial(n-1);
 }
 
+int Fill_array(double num[], const int len) {
+  int i; 
+  if (len < 0) {
+    cout << "Wrong array length.";
+    return 0;
+  }
+  cout << "Enter some real numbers:\n";
+  for (i = 0; i < len; i++) {
+    cin >> num[i];
+    if (!cin){
+      cin.clear();
+      while (cin.get() != '\n') continue;
+      //cout << "Enough number.\n";
+      return i;
+    }  
+  }
+  return i+1;
+}
+
+void Show_array(double num[], const int len) {
+  if (len < 0) {
+    cout << "Wrong array length.";
+     exit(EXIT_FAILURE);
+  }
+  for (int i = 0; i < len; i++) {
+    cout << num[i] << "\t";
+  }
+  cout << endl;
+}
+
+void Reverse_array(double num[], const int len) {
+  if (len < 0) {
+    cout << "Wrong array length.";
+    exit(EXIT_FAILURE);
+  }
+    for (int i = 0; i < (len / 2); i++)  {
+      double temp = num[len-i-1];
+      num[len-i-1] = num[i];
+      num[i] = temp;
+    }
+}
 void main()
 {
   showtitle();
@@ -132,21 +173,28 @@ void main()
   // 函数调用 返回值的范围
   longline(5);
   //5
-  unsigned long long factorial(0);
-  int n;
-  cout << "算个阶乘:\n ";
-  cout << "输入一个小于20的正整数 n : ";
-  while(cin >> n && n >= 0 && n < 20) {
-    factorial = Factorial(n);
-    cout << n << "! = " << factorial <<endl;
-    cout << "输入一个正整数 n : ";
-    
-  }
+  //unsigned long long factorial(0);
+  //int n;
+  //cout << "算个阶乘:\n ";
+  //cout << "输入一个小于20的正整数 n : ";
+  //while(cin >> n && n >= 0 && n < 20) {
+  //  factorial = Factorial(n);
+  //  cout << n << "! = " << factorial <<endl;
+  //  cout << "输入一个正整数 n : ";
+  //}
   //递归
   longline(6);
   //6
-
-
+  double numbers[kArrayLength];
+  int length = Fill_array(numbers, kArrayLength);
+  Show_array(numbers, length);
+  Reverse_array(numbers, length);
+  Show_array(numbers, length);
+  //Reverse_array(numbers, 0);
+  //Show_array(numbers, 0);
+  //
+  longline(7);
+  //7
   longline();
   system("pause");
 

@@ -7,6 +7,7 @@
 //TODO  ¿âÖ®ÀàµÄsha
 
 const int kGolfNum (10);
+const int kArrayLength (10);
 
 struct Box {
   char maker[40];
@@ -39,5 +40,9 @@ void ShowBox(Box);
 long double Probability(unsigned, unsigned);
 
 unsigned long long Factorial(int);
+
+int Fill_array(double[], const int);
+void Show_array(double[], const int);
+void Reverse_array(double[], const int);
 
 #endif //TRY1228_TRY1228_TRY_H
