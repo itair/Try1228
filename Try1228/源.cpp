@@ -83,6 +83,11 @@ long double Probability(unsigned numbers, unsigned picks) {
   return result;
 }
 
+unsigned long long Factorial(int n) {
+  if (0 == n) return unsigned long long(1);
+  else return unsigned long long(n) * Factorial(n-1);
+}
+
 void main()
 {
   showtitle();
@@ -127,6 +132,19 @@ void main()
   // 函数调用 返回值的范围
   longline(5);
   //5
+  unsigned long long factorial(0);
+  int n;
+  cout << "算个阶乘:\n ";
+  cout << "输入一个小于20的正整数 n : ";
+  while(cin >> n && n >= 0 && n < 20) {
+    factorial = Factorial(n);
+    cout << n << "! = " << factorial <<endl;
+    cout << "输入一个正整数 n : ";
+    
+  }
+  //递归
+  longline(6);
+  //6
 
 
   longline();

@@ -38,4 +38,6 @@ void ShowBox(Box);
 
 long double Probability(unsigned, unsigned);
 
+unsigned long long Factorial(int);
+
 #endif //TRY1228_TRY1228_TRY_H
