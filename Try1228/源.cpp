@@ -52,7 +52,7 @@ Box BoxSetter(char ch[], float data[]) {
   tempbox.width = data[1];
   tempbox.lenght = data[2];
   tempbox.volume = data[3];
-  strcpy(tempbox.maker, ch); 
+  strcpy_s(tempbox.maker, ch); 
   return tempbox;
 }
 
@@ -61,8 +61,8 @@ Box BoxSetterByAdd(char ch[], float* h, float* w, float* l) {
   tempbox.height = *h;
   tempbox.width = *w;
   tempbox.lenght = *l;
-  tempbox.volume = *h**w**l;
-  strcpy(tempbox.maker, ch); 
+  tempbox.volume = *h**w**l; //蛋略疼...
+  strcpy_s(tempbox.maker, ch); 
   return tempbox;
 }
 
@@ -70,8 +70,17 @@ void ShowBox(Box box) {
   cout << "Maker : " << box.maker << endl
        << "Height : " << box.height << endl
        << "Width : " << box.width << endl
-       << "Lenght : " << box.lenght << endl
+       << "Length : " << box.lenght << endl
        << "Volume : " << box.volume << endl << endl;
+}
+
+long double Probability(unsigned numbers, unsigned picks) {
+  long double result = 1.0 ;
+  long double n;
+  unsigned p;
+  for (n = numbers, p = picks; p > 0 ; n--, p--) 
+    result = result *n / p;
+  return result;
 }
 
 void main()
@@ -105,6 +114,21 @@ void main()
   box2 = BoxSetterByAdd(ch, &(box1.height), &(box1.width), &(box1.lenght));
   ShowBox(box1);
   ShowBox(box2);
+  //这蛋疼的 MS 怎么就不支持 列表初始化呢?
+  longline(4);
+  //4
+  cout << "双色球 5+1: \n"
+       << "红球 47 选 5 \n" 
+       << "蓝球 27 选 1 \n"
+       << "中头奖的概率是: ";
+  long double rate_red = Probability(47, 5);
+  long double rate_blue = Probability(27, 1);
+  cout << rate_red * rate_blue << "之一 -_-! \n";
+  // 函数调用 返回值的范围
+  longline(5);
+  //5
+
+
   longline();
   system("pause");
 
