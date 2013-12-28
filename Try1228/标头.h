@@ -14,11 +14,23 @@ inline void showtitle(void) { std::cout<< "C++_Primer_Plus\n"
 inline void longline(void) { std::cout<< "________________________________\n\n"; }  
 inline void longline(const int i) { std::cout<<i<< ".______________________________\n\n"; } 
 
-double AverDiff (double, double);
+double AverDiff(double, double);
 
-int InputResult (double [], int);
-void ShowResult (double [], int);
-void AverageResult (double [], int);
+int InputResult(double [], int);
+void ShowResult(double [], int);
+void AverageResult(double [], int);
+
+struct Box {
+  char maker[40];
+  float height;
+  float width;
+  float lenght;
+  float volume;
+};
+
+Box BoxSetter(char[], float[]);
+Box BoxSetterByAdd(char[], float*, float*, float*);
+void ShowBox(Box);
 
 
 

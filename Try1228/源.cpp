@@ -3,6 +3,9 @@
 // Try to use Google C++ programing style                                      
 #include "标头.h"
 #include <iostream>
+#include "string.h"
+#include <string>
+#include <cstring>
 
 using namespace std;
 
@@ -43,6 +46,33 @@ void AverageResult(double res[], int num) {
   }
   cout << "Average results is : " << sum / num << endl;
 }
+Box BoxSetter(char ch[], float data[]) {
+  Box tempbox;
+  tempbox.height = data[0];
+  tempbox.width = data[1];
+  tempbox.lenght = data[2];
+  tempbox.volume = data[3];
+  strcpy(tempbox.maker, ch); 
+  return tempbox;
+}
+
+Box BoxSetterByAdd(char ch[], float* h, float* w, float* l) {
+  Box tempbox;
+  tempbox.height = *h;
+  tempbox.width = *w;
+  tempbox.lenght = *l;
+  tempbox.volume = *h**w**l;
+  strcpy(tempbox.maker, ch); 
+  return tempbox;
+}
+
+void ShowBox(Box box) {
+  cout << "Maker : " << box.maker << endl
+       << "Height : " << box.height << endl
+       << "Width : " << box.width << endl
+       << "Lenght : " << box.lenght << endl
+       << "Volume : " << box.volume << endl << endl;
+}
 
 void main()
 {
@@ -68,11 +98,13 @@ void main()
   //函数数组变量的传入与赋值循环 错误处理
   longline(3);
   //3
-  double golf[4];
-  *golf = 0.1;
-  golf++ ;
-  *golf = 0.2;
-
+  Box box1, box2;
+  char ch[40] = "Itair";
+  float data[4]= {10.0, 12.0, 15.0, 1800.0};  
+  box1 = BoxSetter(ch, data);
+  box2 = BoxSetterByAdd(ch, &(box1.height), &(box1.width), &(box1.lenght));
+  ShowBox(box1);
+  ShowBox(box2);
   longline();
   system("pause");
 
