@@ -220,6 +220,41 @@ void Show(const Expen da) {
   cout << "Total Expensens: $" << total << endl;
 }
 
+int GetInfo(Student st[], int n) {
+  int i(0);
+  for (i = 0; i < n; i++) {
+    cout << "Enter #" << (i+1) << " student's iformations:\n";
+    cout << "Fullname: ";    
+    cin.getline(st[i].fullname, SLEN);
+    cout << "Hobby: ";
+    cin.getline(st[i].hobby, SLEN);
+    cout << "Opp skill level: ";
+    cin>>st[i].ooplevel;
+    cin.get();
+    }
+  return i ;
+}
+
+void Display1(Student st) {
+  cout << "Name: \t" << st.fullname << endl
+       << "Hobby:\t" << st.hobby << endl
+       << "Opp skill level:\t" << st.ooplevel <<endl;
+}
+
+void Display2(const Student *st) {
+  cout << "Name: \t" << (*st).fullname << endl
+    << "Hobby:\t" << (*st).hobby << endl
+    << "Opplevel:\t" << (*st).ooplevel <<endl;
+}
+void Display3(const Student st[], int n) {
+  for (int i = 0; i < n; i++) {
+    cout << "\nStudent #" << i << " :\n" 
+      << "Name: \t" << st[i].fullname << endl
+      << "Hobby:\t" << st[i].hobby << endl
+      << "Opplevel:\t" << st[i].ooplevel <<endl;
+  } 
+}
+
 void main()
 {
   showtitle();
@@ -308,19 +343,35 @@ void main()
   ////数组指针 操作  *ptr = &ppp[] ; ptr++ 来遍历;
   longline(8);
   //8
-  CountDown(5);
-  array<double, kSeasons> expenses;
-  Fill(&expenses);
-  Show(expenses);
-  double expenses1[kSeasons];
-  Fill(expenses1);
-  Show(expenses1);
-  Expen expenses2;
-  Fill(&expenses2);
-  Show(expenses2);  
-  //
+//   CountDown(5);
+//   array<double, kSeasons> expenses;
+//   Fill(&expenses);
+//   Show(expenses);
+//   double expenses1[kSeasons];
+//   Fill(expenses1);
+//   Show(expenses1);
+//   Expen expenses2;
+//   Fill(&expenses2);
+//   Show(expenses2);  
+//  //不同结构的数组 在函数入口 传值格式的区别
   longline(9);
-
+  //
+  cout << "Enter class size: ";
+  int class_size;
+  cin >> class_size;
+  while (cin.get() != '\n') continue;
+  Student* ptr_stu = new Student[class_size];
+  int enterd = GetInfo(ptr_stu, class_size);
+  for (int i = 0; i < enterd; i++)  {
+    cout << "\nStudent #" << i+1 << " :\n";
+    Display1(ptr_stu[i]);
+    Display2(&ptr_stu[i]);
+  }
+  cout << "\nDisplay3:\n";
+  Display3(ptr_stu, enterd);
+  delete[] ptr_stu;
+  cout << "Done.\n";
+  //
   longline();
   system("pause");
 

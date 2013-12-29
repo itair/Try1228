@@ -14,6 +14,8 @@ const std::array<std::string, kSeasons> Snames =
   {"Spring", "Summer", "Fail", "Winer" };
 const char* Snames1[kSeasons] = 
   {"Spring", "Summer", "Fail", "Winer" };
+const int SLEN(30);
+
 //类与结构
 struct Box {
   char maker[40];
@@ -25,6 +27,12 @@ struct Box {
 
 struct Expen {
   double expenses[kSeasons];
+};
+
+struct Student {
+  char fullname[SLEN];
+  char hobby[SLEN];
+  int ooplevel;
 };
 
 //内联
@@ -67,5 +75,11 @@ void Fill(double[]);
 void Show(const double[]);
 void Fill(Expen*);
 void Show(const Expen);
+
+int GetInfo(Student [], int);
+void Display1(Student);
+void Display2(const Student *);
+void Display3(const Student[], int);
+
 
 #endif //TRY1228_TRY1228_TRY_H
