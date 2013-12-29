@@ -255,6 +255,20 @@ void Display3(const Student st[], int n) {
   } 
 }
 
+double Add(double x, double y) {
+  return x+y;
+}
+
+double Diff(double x, double y) {
+  return (x > y) ? (x - y) : (y - x);
+}
+
+double Calculate(double x, double y, double Func(double a ,double b)) {
+  double result = Func(x, y);
+  return result;
+}
+
+
 void main()
 {
   showtitle();
@@ -355,24 +369,36 @@ void main()
 //   Show(expenses2);  
 //  //不同结构的数组 在函数入口 传值格式的区别
   longline(9);
-  //
-  cout << "Enter class size: ";
-  int class_size;
-  cin >> class_size;
-  while (cin.get() != '\n') continue;
-  Student* ptr_stu = new Student[class_size];
-  int enterd = GetInfo(ptr_stu, class_size);
-  for (int i = 0; i < enterd; i++)  {
-    cout << "\nStudent #" << i+1 << " :\n";
-    Display1(ptr_stu[i]);
-    Display2(&ptr_stu[i]);
+  ////9
+  //cout << "Enter class size: ";
+  //int class_size;
+  //cin >> class_size;
+  //while (cin.get() != '\n') continue;
+  //Student* ptr_stu = new Student[class_size];
+  //int enterd = GetInfo(ptr_stu, class_size);
+  //for (int i = 0; i < enterd; i++)  {
+  //  cout << "\nStudent #" << i+1 << " :\n";
+  //  Display1(ptr_stu[i]);
+  //  Display2(&ptr_stu[i]);
+  //}
+  //cout << "\nDisplay3:\n";
+  //Display3(ptr_stu, enterd);
+  //delete[] ptr_stu;
+  //cout << "Done.\n";
+  //// 根据文档对函数的描述 与接口 完成函数构造
+  longline(10);
+  //10
+  double x, y;
+  cout << "Enter two real numbers:\n";
+  while (cin >> x >> y) {
+    double a = Calculate(x, y, Add);
+    double b = Calculate(x, y, Diff);
+    cout << "The sum of " << x << " and " << y << " is " << a << endl;
+    cout << "The difference of " << x << " and " << y << " is " << b << endl;
+    cin.get();
   }
-  cout << "\nDisplay3:\n";
-  Display3(ptr_stu, enterd);
-  delete[] ptr_stu;
-  cout << "Done.\n";
-  //
-  longline();
+  //函数入口指针的 声明格式 , 函数指针调用与函数嵌套
+  longline();//这章累死爷了
   system("pause");
 
 }

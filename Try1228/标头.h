@@ -38,13 +38,14 @@ struct Student {
 //内联
 inline void showtitle(void) { 
   std::cout<< "C++_Primer_Plus\n" << "    by itAir\n" << "Hello World!\n\n";
-}           
+}
 inline void longline(void) { 
   std::cout<< "________________________________\n\n";
-}  
+}
 inline void longline(const int i) { 
   std::cout<<i<< ".______________________________\n\n"; 
-} 
+}
+
 //全局函数
 double AverDiff(double, double);
 
@@ -81,5 +82,7 @@ void Display1(Student);
 void Display2(const Student *);
 void Display3(const Student[], int);
 
-
+double Add(double, double);
+double Diff(double, double);
+double Calculate(double, double, double* (double,double));
 #endif //TRY1228_TRY1228_TRY_H
