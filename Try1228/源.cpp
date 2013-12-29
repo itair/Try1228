@@ -1,6 +1,7 @@
-//C++ Primer Plus 课后习题 p250 7.13 
-// by itAir
-// Try to use Google C++ programing style                                      
+/*C++ Primer Plus 课后习题 p250 7.13 
+ by itAir
+ Try to use Google C++ programing style    */    
+
 #include "标头.h"
 #include <iostream>
 #include "string.h"
@@ -101,7 +102,7 @@ int Fill_array(double num[], const int len) {
     if (!cin){
       cin.clear();
       while (cin.get() != '\n') continue;
-      //cout << "Enough number.\n";
+      cout << "Enough number.\n";
       return i;
     }  
   }
@@ -273,23 +274,23 @@ void main()
 {
   showtitle();
   longline(1);
-  // 1
-  //double a(0.0), b(0.0);
-  //double average_diff;
-  //cout << "Enter two numbers and quit with 0\n";
-  //while (cin >> a >> b && a != 0.0 && b != 0.0 ) {
-  //  average_diff = AverDiff (a, b);
-  //  cout << " The average_differ of " << a << " and " << b 
-  //       << " is " << average_diff << endl;
-  //}
-  // 函数原型 和 实现的位置
+   //1
+  double a(0.0), b(0.0);
+  double average_diff;
+  cout << "Enter two numbers and quit with 0\n";
+  while (cin >> a >> b && a != 0.0 && b != 0.0 ) {
+    average_diff = AverDiff (a, b);
+    cout << " The average_differ of " << a << " and " << b 
+         << " is " << average_diff << endl;
+  }
+  //函数原型 和 实现的位置
   longline(2);
   //2
-  //double golf_results[kGolfNum];  
-  //int num(0);
-  //num = InputResult(golf_results, kGolfNum);
-  //ShowResult(golf_results, num);
-  //AverageResult(golf_results, num);
+  double golf_results[kGolfNum];  
+  int num(0);
+  num = InputResult(golf_results, kGolfNum);
+  ShowResult(golf_results, num);
+  AverageResult(golf_results, num);
   //函数数组变量的传入与赋值循环 错误处理
   longline(3);
   //3
@@ -310,82 +311,82 @@ void main()
   long double rate_red = Probability(47, 5);
   long double rate_blue = Probability(27, 1);
   cout << rate_red * rate_blue << "之一 -_-! \n";
-  // 函数调用 返回值的范围
+   //函数调用 返回值的范围
   longline(5);
   //5
-  //unsigned long long factorial(0);
-  //int n;
-  //cout << "算个阶乘:\n ";
-  //cout << "输入一个小于20的正整数 n : ";
-  //while(cin >> n && n >= 0 && n < 20) {
-  //  factorial = Factorial(n);
-  //  cout << n << "! = " << factorial <<endl;
-  //  cout << "输入一个正整数 n : ";
-  //}
+  unsigned long long factorial(0);
+  int n;
+  cout << "算个阶乘:\n ";
+  cout << "输入一个小于20的正整数 n : ";
+  while(cin >> n && n >= 0 && n < 20) {
+    factorial = Factorial(n);
+    cout << n << "! = " << factorial <<endl;
+    cout << "输入一个正整数 n : ";
+  }
   //递归
   longline(6);
-  ////6
-  //double numbers[kArrayLength];
-  //int length = Fill_array(numbers, kArrayLength);
-  //Show_array(numbers, length);
-  //Reverse_array(numbers, length);
-  //Show_array(numbers, length);
-  //for (int i = 2; i < length; i++)  {
-  //  for (int j = 2; j < length; j++) {
-  //    Reverse_array(numbers, j);
-  //    Show_array(numbers, length);
-  //  }
-  //}
-  //Show_array(numbers, length);
-  //Reverse_array(numbers, 0);
-  //Show_array(numbers, 0);
-  //// 函数 功能性设计
+  //6
+  double numbers[kArrayLength];
+  int length = Fill_array(numbers, kArrayLength);
+  Show_array(numbers, length);
+  Reverse_array(numbers, length);
+  Show_array(numbers, length);
+  for (int i = 2; i < length; i++)  {
+    for (int j = 2; j < length; j++) {
+      Reverse_array(numbers, j);
+      Show_array(numbers, length);
+    }
+  }
+  Show_array(numbers, length);
+  Reverse_array(numbers, 0);
+  Show_array(numbers, 0);
+  // 函数 功能性设计
   longline(7);
   //7
-  //double properties[kMax];
-  //for (int i = 0; i < kMax; i++) properties[i] = 0.0;
-  //double* pend;
-  //pend = &properties[kMax];
-  //double* pt = Fill_array_(properties, pend);
-  //Show_array_(properties, pt);
-  //cout << "Enter revaluation factor: ";
-  //double factor;
-  //cin >> factor;
-  //Revalue_(factor, properties, pt);
-  //Show_array_(properties, pt);
-  //cout << "Done.\n";
-  ////数组指针 操作  *ptr = &ppp[] ; ptr++ 来遍历;
+  double properties[kMax];
+  for (int i = 0; i < kMax; i++) properties[i] = 0.0;
+  double* pend;
+  pend = &properties[kMax];
+  double* pt = Fill_array_(properties, pend);
+  Show_array_(properties, pt);
+  cout << "Enter revaluation factor: ";
+  double factor;
+  cin >> factor;
+  Revalue_(factor, properties, pt);
+  Show_array_(properties, pt);
+  cout << "Done.\n";
+  //数组指针 操作  *ptr = &ppp[] ; ptr++ 来遍历;
   longline(8);
   //8
-//   CountDown(5);
-//   array<double, kSeasons> expenses;
-//   Fill(&expenses);
-//   Show(expenses);
-//   double expenses1[kSeasons];
-//   Fill(expenses1);
-//   Show(expenses1);
-//   Expen expenses2;
-//   Fill(&expenses2);
-//   Show(expenses2);  
-//  //不同结构的数组 在函数入口 传值格式的区别
+   CountDown(5);
+   array<double, kSeasons> expenses;
+   Fill(&expenses);
+   Show(expenses);
+   double expenses1[kSeasons];
+   Fill(expenses1);
+   Show(expenses1);
+   Expen expenses2;
+   Fill(&expenses2);
+   Show(expenses2);  
+  //不同结构的数组 在函数入口 传值格式的区别
   longline(9);
-  ////9
-  //cout << "Enter class size: ";
-  //int class_size;
-  //cin >> class_size;
-  //while (cin.get() != '\n') continue;
-  //Student* ptr_stu = new Student[class_size];
-  //int enterd = GetInfo(ptr_stu, class_size);
-  //for (int i = 0; i < enterd; i++)  {
-  //  cout << "\nStudent #" << i+1 << " :\n";
-  //  Display1(ptr_stu[i]);
-  //  Display2(&ptr_stu[i]);
-  //}
-  //cout << "\nDisplay3:\n";
-  //Display3(ptr_stu, enterd);
-  //delete[] ptr_stu;
-  //cout << "Done.\n";
-  //// 根据文档对函数的描述 与接口 完成函数构造
+  //9
+  cout << "Enter class size: ";
+  int class_size;
+  cin >> class_size;
+  while (cin.get() != '\n') continue;
+  Student* ptr_stu = new Student[class_size];
+  int enterd = GetInfo(ptr_stu, class_size);
+  for (int i = 0; i < enterd; i++)  {
+    cout << "\nStudent #" << i+1 << " :\n";
+    Display1(ptr_stu[i]);
+    Display2(&ptr_stu[i]);
+  }
+  cout << "\nDisplay3:\n";
+  Display3(ptr_stu, enterd);
+  delete[] ptr_stu;
+  cout << "Done.\n";
+  // 根据文档对函数的描述 与接口 完成函数构造
   longline(10);
   //10
   double x, y;
@@ -400,5 +401,4 @@ void main()
   //函数入口指针的 声明格式 , 函数指针调用与函数嵌套
   longline();//这章累死爷了
   system("pause");
-
 }
