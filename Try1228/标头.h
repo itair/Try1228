@@ -3,11 +3,17 @@
 
 #include <tchar.h>
 #include <iostream>
+#include <array>
 
 //常量
 const int kGolfNum (10);
 const int kArrayLength (10);
 const int kMax(5);
+const int kSeasons(4);
+const std::array<std::string, kSeasons> Snames =
+  {"Spring", "Summer", "Fail", "Winer" };
+const char* Snames1[kSeasons] = 
+  {"Spring", "Summer", "Fail", "Winer" };
 //类与结构
 struct Box {
   char maker[40];
@@ -16,6 +22,11 @@ struct Box {
   float lenght;
   float volume;
 };
+
+struct Expen {
+  double expenses[kSeasons];
+};
+
 //内联
 inline void showtitle(void) { 
   std::cout<< "C++_Primer_Plus\n" << "    by itAir\n" << "Hello World!\n\n";
@@ -48,4 +59,13 @@ void Reverse_array(double[], const int);
 double* Fill_array_(double[], const double*);
 void Show_array_(double[], const double*);
 void Revalue_(double, double[], const double*);
+
+void CountDown(int);
+void Fill(std::array<double, kSeasons>*);
+void Show(std::array<double, kSeasons>);
+void Fill(double[]);
+void Show(const double[]);
+void Fill(Expen*);
+void Show(const Expen);
+
 #endif //TRY1228_TRY1228_TRY_H

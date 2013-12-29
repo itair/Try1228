@@ -6,6 +6,7 @@
 #include "string.h"
 #include <string>
 #include <cstring>
+#include <array>
 
 using namespace std;
 
@@ -123,7 +124,7 @@ void Reverse_array(double num[], const int len) {
     cout << "Wrong array length.";
     exit(EXIT_FAILURE);
   }
-    for (int i = 0; i < (len / 2); i++)  {
+    for (int i = 0; i < (len/2); i++)  {
       double temp = num[len-i-1];
       num[len-i-1] = num[i];
       num[i] = temp;
@@ -164,7 +165,60 @@ void Revalue_(double r, double ar[], const double* p) {
   }
 }
 
+void CountDown(int n) {
+  cout << "Counting down ... " << n << endl;
+  if (n > 0)  CountDown (n-1) ;
+  cout << n << ": Kaboom!\n";
+}
 
+void Fill(std::array<double, kSeasons> *pa) {
+  for (int i = 0; i < kSeasons; i++) {
+    cout << "Enter " << Snames[i] << " expenses: ";
+    cin >> (*pa)[i];
+  }
+}
+
+void Show(std::array<double, kSeasons> da) {
+  double total = 0.0 ;
+  cout << "\nEXPENSE\n";
+  for (int i = 0; i < kSeasons; i++) {
+    cout << Snames[i] << ": $" << da[i] << endl;
+    total += da[i];
+  }
+  cout << "Total Expensens: $" << total << endl;
+}
+
+void Fill(double pa[]) {
+  for (int i = 0; i < kSeasons; i++) {
+    cout << "Enter " << Snames1[i] << " expenses: ";
+    cin >> pa[i];
+  }
+}
+void Show(const double da[]) {
+  double total = 0.0 ;
+  cout << "\nEXPENSE\n";
+  for (int i = 0; i < kSeasons; i++) {
+    cout << Snames1[i] << ": $" << da[i] << endl;
+    total += da[i];
+  }
+  cout << "Total Expensens: $" << total << endl;
+}
+
+void Fill(Expen* pa) {
+  for (int i = 0; i < kSeasons; i++) {
+    cout << "Enter " << Snames1[i] << " expenses: ";
+    cin >> (*pa).expenses[i];
+  }
+}
+void Show(const Expen da) {
+  double total = 0.0 ;
+  cout << "\nEXPENSE\n";
+  for (int i = 0; i < kSeasons; i++) {
+    cout << Snames1[i] << ": $" << da.expenses[i] << endl;
+    total += da.expenses[i];
+  }
+  cout << "Total Expensens: $" << total << endl;
+}
 
 void main()
 {
@@ -239,21 +293,34 @@ void main()
   //// 函数 功能性设计
   longline(7);
   //7
-  double properties[kMax];
-  for (int i = 0; i < kMax; i++) properties[i] = 0.0;
-  double* pend;
-  pend = &properties[kMax];
-  double* pt = Fill_array_(properties, pend);
-  Show_array_(properties, pt);
-  cout << "Enter revaluation factor: ";
-  double factor;
-  cin >> factor;
-  Revalue_(factor, properties, pt);
-  Show_array_(properties, pt);
-  cout << "Done.\n";
-  //
+  //double properties[kMax];
+  //for (int i = 0; i < kMax; i++) properties[i] = 0.0;
+  //double* pend;
+  //pend = &properties[kMax];
+  //double* pt = Fill_array_(properties, pend);
+  //Show_array_(properties, pt);
+  //cout << "Enter revaluation factor: ";
+  //double factor;
+  //cin >> factor;
+  //Revalue_(factor, properties, pt);
+  //Show_array_(properties, pt);
+  //cout << "Done.\n";
+  ////数组指针 操作  *ptr = &ppp[] ; ptr++ 来遍历;
   longline(8);
   //8
+  CountDown(5);
+  array<double, kSeasons> expenses;
+  Fill(&expenses);
+  Show(expenses);
+  double expenses1[kSeasons];
+  Fill(expenses1);
+  Show(expenses1);
+  Expen expenses2;
+  Fill(&expenses2);
+  Show(expenses2);  
+  //
+  longline(9);
+
   longline();
   system("pause");
 
