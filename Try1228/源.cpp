@@ -129,6 +129,43 @@ void Reverse_array(double num[], const int len) {
       num[i] = temp;
     }
 }
+
+double* Fill_array_(double ar[], const double* p) {
+  double* temp;
+  int i(0);
+  for (temp = ar; temp != p; temp++) {
+    cout << "Enter value # " << ++i << ": ";
+    cin >> *temp;
+    if (!cin) {
+      cin.clear();
+      while (cin.get() != '\n') 
+        continue;
+      cout << "Bad input: ipute process terminated.\n";
+      break;
+    }
+    else if (temp < 0)
+      break;
+    ar = temp;
+  }
+  return temp;
+}
+
+void Show_array_(double ar[], const double* p) {
+  int i = 0;
+  for (double* t = ar; t != p; t++)  {
+    cout << "Property #" << (++i) << ": $ ";
+    cout << *t << endl;
+  }
+}
+
+void Revalue_(double r, double ar[], const double* p) {
+  for (double* i = ar ; i != p; i++) {
+    *i *= r;
+  }
+}
+
+
+
 void main()
 {
   showtitle();
@@ -184,17 +221,39 @@ void main()
   //}
   //递归
   longline(6);
-  //6
-  double numbers[kArrayLength];
-  int length = Fill_array(numbers, kArrayLength);
-  Show_array(numbers, length);
-  Reverse_array(numbers, length);
-  Show_array(numbers, length);
+  ////6
+  //double numbers[kArrayLength];
+  //int length = Fill_array(numbers, kArrayLength);
+  //Show_array(numbers, length);
+  //Reverse_array(numbers, length);
+  //Show_array(numbers, length);
+  //for (int i = 2; i < length; i++)  {
+  //  for (int j = 2; j < length; j++) {
+  //    Reverse_array(numbers, j);
+  //    Show_array(numbers, length);
+  //  }
+  //}
+  //Show_array(numbers, length);
   //Reverse_array(numbers, 0);
   //Show_array(numbers, 0);
-  //
+  //// 函数 功能性设计
   longline(7);
   //7
+  double properties[kMax];
+  for (int i = 0; i < kMax; i++) properties[i] = 0.0;
+  double* pend;
+  pend = &properties[kMax];
+  double* pt = Fill_array_(properties, pend);
+  Show_array_(properties, pt);
+  cout << "Enter revaluation factor: ";
+  double factor;
+  cin >> factor;
+  Revalue_(factor, properties, pt);
+  Show_array_(properties, pt);
+  cout << "Done.\n";
+  //
+  longline(8);
+  //8
   longline();
   system("pause");
 
